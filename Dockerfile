@@ -1,13 +1,11 @@
-FROM node:18-alpine
+FROM flowiseai/flowise:1.8.2
 
-WORKDIR /app
+USER root
+RUN mkdir -p /data && chmod 777 /data
 
-# puppeteer 다운로드 완전 차단
-ENV PUPPETEER_SKIP_DOWNLOAD=true
-
-# 메모리 줄이기 + 최소 설치
-RUN npm install -g flowise --omit=dev --no-optional
-
-EXPOSE 3000
-
-CMD ["flowise", "start"]
+ENV PORT=7860
+ENV DATABASE_PATH=/data
+ENV APIHOST=0.0.0.0
+ENV FLOWISE_USERNAME=
+ENV FLOWISE_PASSWORD=
+ENV FLOWISE_AUTH_ENABLED=false
