@@ -9,5 +9,5 @@ ENV APIHOST=0.0.0.0
 ENV FLOWISE_USERNAME=
 ENV FLOWISE_PASSWORD=
 ENV FLOWISE_AUTH_ENABLED=false
-CMD npx flowise start
+CMD ["npx", "flowise", "start"]
 
